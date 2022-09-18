@@ -1,4 +1,5 @@
 from operator import inv
+from os import remove
 import sys
 import json
 
@@ -44,6 +45,10 @@ def combine_lists(addList, removeList):
     errorAdding = []
     errorRemoving = []
     masterList = []
+    print("add: ", addList)
+    input("enter")
+    print("remove: ", removeList)
+    input("enter")
     for card in addList:
         if "Error" in card:
             errorAdding.append(card)
@@ -65,19 +70,23 @@ def main():
         write_to_cache(global_cacheFilePath ,apiDatabase)
     # print("Input File: ", inputFile, "\n\n")
     inventory = import_inventory(inventoryFile)
+    print("inventory: ", inventory)
     # print("Inventory:\n", inventory, "\n")
     apiDatabase = import_cached_API(global_cacheFilePath)
     addListSetcodes, removeListSetcodes, addCount, removeCount = import_new_data(inputFile)
     # print("add list setcodes:\n", addListSetcodes, "\n")
     # print("remove list setcodes:\n", removeListSetcodes, "\n")
     addList = add_cards(inventory, addListSetcodes, apiDatabase)
+    input("\n------")
     # print("add card list:\n", addList, "\n")
     removeList = remove_cards(inventory, removeListSetcodes)
     # print("remove card list:\n", removeList, "\n")
     finalList, errorAdd, errorRemove = combine_lists(addList, removeList)
+    print("\n\n")
     print("complete list:\n", finalList, "\n")
     print("Error Adding: ", errorAdd)
     print("Error Removing: ", errorRemove)
+    input("Write to file")
     write_to_inventory(outputFile, finalList)
     
 

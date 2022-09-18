@@ -3,7 +3,10 @@ import json
 def write_to_inventory(fname, writeList):
     print("in write to inventory")
     with open(fname, 'w', encoding='utf-8') as f:
+        f.write("{\n")
+        f.write("\"Inventory\" : ")
         json.dump(writeList, f, ensure_ascii=False, indent=4)
+        f.write("\n}\n")
 
 
 def write_to_cache(fname, jsonList):
