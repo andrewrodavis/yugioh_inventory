@@ -11,8 +11,8 @@ def import_inventory(fname):
 
 
 # Testing
-inventory = import_inventory("../3_inventory_database/1_inventory.json")
-print(inventory)
+# inventory = import_inventory("../3_inventory_database/1_inventory.json")
+# print(inventory)
 
 # for card in inventory:
 #     print(card['name'])

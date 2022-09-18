@@ -35,7 +35,7 @@ def get_new_counts(inventory, removeList):
             list_updateInventory.append(string_error)
     return list_updateInventory
 
-inventory = import_inventory("../3_inventory_database/1_inventory.json")
-removeList = ["SDK-001", "MP21-EN138", "MP21-EN139"]
-list = remove_cards(inventory, removeList)
-print("\nlist: ", list)
+# inventory = import_inventory("../3_inventory_database/1_inventory.json")
+# removeList = ["SDK-001", "MP21-EN138", "MP21-EN139"]
+# list = remove_cards(inventory, removeList)
+# print("\nlist: ", list)

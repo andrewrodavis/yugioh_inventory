@@ -5,15 +5,11 @@ import time
 
 RATE_LIMIT = 20
 
-def add_cards(inventory, addList):
+def add_cards(inventory, addList, apiData):
     print("\n\nIN add\n\n")
     addToInventory = []
-    waitTime = 1 / RATE_LIMIT + 5   # Current API limit is 20 calls per 1 second
 
-    print("\ninventory: ", inventory)
     for addCard in addList:
-        time.sleep(waitTime)
-        print("\nCard: ", addCard)
         bool_addCard = False
         for inventoryCard in inventory:
             if addCard == inventoryCard['set_code']:
@@ -27,15 +23,17 @@ def add_cards(inventory, addList):
             else:
                 bool_addCard = True
         if bool_addCard:
-            cardData = get_card_info(addCard)
+            cardData = get_card_info(addCard, apiData)
             addToInventory.append(cardData)
+    input("enter")
+    print("Inventory: ", addToInventory)
     return addToInventory
             
 
 
-print("starting")
-inventory = import_inventory("../3_inventory_database/1_inventory.json")
-list = ["SDK-001", "SDK-002", "SDK-003", "MP21-EN138"]
-print("list: ", list)
-list = add_cards(inventory, list)
-print(list)
+# print("starting")
+# inventory = import_inventory("../3_inventory_database/1_inventory.json")
+# list = ["SDK-001", "SDK-002", "SDK-003", "MP21-EN138"]
+# print("list: ", list)
+# list = add_cards(inventory, list)
+# print(list)

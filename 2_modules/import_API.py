@@ -3,6 +3,24 @@ import json
 
 APISetCodeURL = "https://db.ygoprodeck.com/api/v7/cardsetsinfo.php?setcode="
 APINameURL = "https://db.ygoprodeck.com/api/v7/cardinfo.php?name="
+APICardInfoURL = "https://db.ygoprodeck.com/api/v7/cardinfo.php"
+
+def import_all_API():
+    JSONPackage = ""
+
+    response_API = requests.get(APICardInfoURL)
+
+    if response_API.status_code == 404:
+        print("Status 404 on card ")
+        return [404]
+    
+    data = response_API.text
+
+    JSONPackage = json.loads(data)
+
+    #JSONPackage['data'] -- then iterate over list and use keywords
+
+    return JSONPackage['data']
 
 def import_setcode_data(setcode):
     JSONPackage = ""
