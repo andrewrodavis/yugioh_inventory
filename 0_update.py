@@ -8,16 +8,12 @@ global_cacheFilePath = "./3_inventory_database/4_cached_API.json"
 sys.path.append("./2_modules")
 
 # Import all relevant modules
-from import_update_list import import_inventory
+from import_inventory import import_inventory, import_cached_API
 from import_update_list import import_new_data
 from add_cards import add_cards
 from remove_cards import remove_cards
 from import_API import import_all_API
-from write_file import write_to_cache
-# from import_API import import_API_data
-# from remove_cards import remove_cards
-# from write_file import write_to_inventory, write_to_deck_building
-# from add_cards import add_cards
+from write_file import write_to_cache, write_to_inventory
 
 # --------------------------
 # Function: get_args
@@ -45,34 +41,44 @@ def get_args(argv):
 #   The input and output files
 # --------------------------
 def combine_lists(addList, removeList):
-    completeList = addList + removeList
-    return completeList
+    errorAdding = []
+    errorRemoving = []
+    masterList = []
+    for card in addList:
+        if "Error" in card:
+            errorAdding.append(card)
+        else:
+            masterList.append(card)
+    for card in removeList:
+        if "Error" in card:
+            errorRemoving.append(card)
+        else:
+            masterList.append(card)
+    return masterList, errorAdding, errorRemoving
 
 
 def main():
+    print("Starting update")
     inputFile, inventoryFile, outputFile, updateFlag = get_args(sys.argv)
     if updateFlag:
         apiDatabase = import_all_API()
         write_to_cache(global_cacheFilePath ,apiDatabase)
-    print("Complete")
-    
-
     # print("Input File: ", inputFile, "\n\n")
-    # inventory = import_inventory(inventoryFile)
+    inventory = import_inventory(inventoryFile)
     # print("Inventory:\n", inventory, "\n")
-    # apiDatabase = import_all_API()
-    # # for card in apiDatabase:
-    # #     print("Card: ", card['name'])
-    # addListSetcodes, removeListSetcodes = import_new_data(inputFile)
+    apiDatabase = import_cached_API(global_cacheFilePath)
+    addListSetcodes, removeListSetcodes, addCount, removeCount = import_new_data(inputFile)
     # print("add list setcodes:\n", addListSetcodes, "\n")
     # print("remove list setcodes:\n", removeListSetcodes, "\n")
-    # addList = add_cards(inventory, addListSetcodes, apiDatabase)
+    addList = add_cards(inventory, addListSetcodes, apiDatabase)
     # print("add card list:\n", addList, "\n")
-    # removeList = remove_cards(inventory, removeListSetcodes)
+    removeList = remove_cards(inventory, removeListSetcodes)
     # print("remove card list:\n", removeList, "\n")
-    # input("enter")
-    # finalList = combine_lists(addList, removeList)
-    # print("complete list:\n", finalList, "\n")
+    finalList, errorAdd, errorRemove = combine_lists(addList, removeList)
+    print("complete list:\n", finalList, "\n")
+    print("Error Adding: ", errorAdd)
+    print("Error Removing: ", errorRemove)
+    write_to_inventory(outputFile, finalList)
     
 
 

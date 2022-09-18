@@ -6,7 +6,8 @@ def import_new_data(fname):
     addCard = True
     addList = []
     removeList = []
-    # fname = "../" + fname   # Need to fix this path issue. Current fname comes from the previous file, relative
+    addCount = 0
+    removeCount = 0
 
     with open(fname, 'r') as f:
         lines = f.readlines()
@@ -19,9 +20,11 @@ def import_new_data(fname):
             else:
                 if addCard:
                     addList.append(row)
+                    addCount += 1
                 else:
                     removeList.append(row)
-    return addList, removeList
+                    removeCount += 1
+    return addList, removeList, addCount, removeCount
         
 # add, remove = import_new_data("../1_update_inventory.txt")
 # print("add: ", add)

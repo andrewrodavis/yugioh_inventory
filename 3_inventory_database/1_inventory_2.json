@@ -1,0 +1,47 @@
+[
+    {
+        "name": "\"A\" Cell Breeding Device",
+        "set_code": "FOTB-EN043",
+        "type": "Spell Card",
+        "lowest_card_prices": [
+            {
+                "tcgplayer_price": "1.29"
+            }
+        ],
+        "number_owned": 1
+    },
+    {
+        "name": "\"Infernoble Arms - Joyeuse\"",
+        "set_code": "ROTD-EN055",
+        "type": "Spell Card",
+        "lowest_card_prices": [
+            {
+                "tcgplayer_price": "0.99"
+            }
+        ],
+        "number_owned": 1
+    },
+    {
+        "name": "Blue-Eyes White Dragon",
+        "set_code": "SDK-001",
+        "type": "Normal Monster",
+        "lowest_card_prices": [
+            {
+                "tcgplayer_price": "10.95"
+            }
+        ],
+        "number_owned": 1
+    },
+    {
+        "name": "Melffy Tag",
+        "set_code": "MP21-EN139",
+        "type": "Spell Card",
+        "lowest_card_prices": [
+            {
+                "tcgplayer_price": "0.21",
+                "ebay_price": "0.99"
+            }
+        ],
+        "number_owned": 1
+    }
+]

@@ -6,7 +6,6 @@ import time
 RATE_LIMIT = 20
 
 def add_cards(inventory, addList, apiData):
-    print("\n\nIN add\n\n")
     addToInventory = []
 
     for addCard in addList:
@@ -25,8 +24,6 @@ def add_cards(inventory, addList, apiData):
         if bool_addCard:
             cardData = get_card_info(addCard, apiData)
             addToInventory.append(cardData)
-    input("enter")
-    print("Inventory: ", addToInventory)
     return addToInventory
             
 

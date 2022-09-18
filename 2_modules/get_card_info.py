@@ -2,7 +2,7 @@ from import_API import import_all_API, import_setcode_data, import_name_data
 
 def get_card_info(setcode, apiData):
     bool_cardFound = False
-    errorMsg = "ERROR Setcode not found: "
+    errorMsg = "Error on "
     for card in apiData:
         try:
             for setcodeList in card['card_sets']:
