@@ -9,6 +9,12 @@ FILE_API_cache = "./API_cache.json"
 FILE_inventoryBasic = "./inventory_basic.json"
 FILE_addList = "./add_file.txt"
 
+# COMPLETE - successfully import the cached api database
+def import_cached_API(fname):
+    with open(fname, 'r') as f:
+        data = json.load(f)
+        return data
+
 # COMPLETE - successfully import the entire api database from the website
 def import_all_API(url):
     JSONPackage = ""
@@ -80,10 +86,12 @@ def add_cards(addList, inventoryBasic, apiCache):
             badAdds += 1
             errorList.append(newCard)
 
-
-data = import_all_API(URL_API_info)
-write_to_cache(FILE_API_cache, data)
-
+data = import_cached_API(FILE_API_cache)
+x = 0
+for card in data:
+    if x < 11:
+        print(card['name'])
+    x += 1
 # data = import_json_file(FILE_inventoryBasic)
 # for card in data:
 #     print("name: ", card['name'])
