@@ -1,0 +1,26 @@
+{
+    "Inventory" : [
+        {
+            "name" : "Amaze Attraction Thrill Train",
+            "set_code" : "POTE-EN077",
+            "type" : "Trap Card",
+            "lowest_card_prices" : [
+                {
+                    "tcgplayer_price" : "0.07",
+                    "ebay_price" : "1.47"
+                }
+            ],
+            "number_owned" : 1
+        },
+        { "name" : "A\" Cell Breeding Device", 
+          "set_code": "FOTB-EN043", 
+          "type": "Spell Card", 
+          "lowest_card_prices": [
+            {
+            "tcgplayer_price": "1.29"
+            }
+            ], 
+           "number_owned": 1
+        }
+    ]
+}
