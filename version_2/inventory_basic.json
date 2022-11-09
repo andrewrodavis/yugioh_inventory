@@ -2,11 +2,11 @@
     {
         "setcode": "sdk-001",
         "name": "Blue-Eyes White Dragon",
-        "owned": 14
+        "owned": 11
     },
     {
         "setcode": "sdk-002",
-        "name": "idk",
+        "name": "Idk",
         "owned": 7
     },
     {
@@ -17,6 +17,6 @@
     {
         "setcode": "sdk-004",
         "name": "The Wicked Worm Beast",
-        "owned": 3
+        "owned": 2
     }
 ]

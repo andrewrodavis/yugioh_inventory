@@ -138,20 +138,20 @@ def remove_from_inventory(removeList, inventory):
 
 
 
-data = import_cached_API(FILE_API_cache)
-removeList = import_update_file(FILE_removeList)
-inventory = import_json_file(FILE_inventoryBasic)
+# data = import_cached_API(FILE_API_cache)
+# removeList = import_update_file(FILE_removeList)
+# inventory = import_json_file(FILE_inventoryBasic)
 # addList = import_update_file(FILE_addList)
 
 # goodAdds, badAdds, errorList, inventoryBasic = add_cards(addList, inventory, data)
 
-print(inventory)
-inventory, goodRemoves, errorRemoves, errorRemoveList = remove_from_inventory(removeList, inventory)
-print(inventory)
-print("Good Removes: ", goodRemoves)
-print("Errors: ", errorRemoves)
-print("Error List: ", errorRemoveList)
-write_to_json(inventory)
+# print(inventory)
+# inventory, goodRemoves, errorRemoves, errorRemoveList = remove_from_inventory(removeList, inventory)
+# print(inventory)
+# print("Good Removes: ", goodRemoves)
+# print("Errors: ", errorRemoves)
+# print("Error List: ", errorRemoveList)
+# write_to_json(inventory)
 
 # DEBUGGING for add->add inventory->write file
 # addList = import_update_file(FILE_addList)
