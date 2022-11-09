@@ -8,6 +8,7 @@ URL_API_info = "https://db.ygoprodeck.com/api/v7/cardinfo.php"
 FILE_API_cache = "./API_cache.json"
 FILE_inventoryBasic = "./inventory_basic.json"
 FILE_addList = "./add_file.txt"
+FILE_removeList = "./remove_file.txt"
 
 # COMPLETE - successfully import the cached api database
 def import_cached_API(fname):
@@ -40,7 +41,7 @@ def write_to_cache(fname, jsonList):
         json.dump(jsonList, f, ensure_ascii=False, indent=4)
 
 # COMPLETE - imports and returns file information
-def import_add_update_file(file_name):
+def import_update_file(file_name):
     print("importing the add file")
     data = []
     with open(file_name, "r") as f:
@@ -53,18 +54,20 @@ def import_json_file(file_name):
     print("Imporing json information")
     with open(file_name, 'r') as f:
         return json.load(f)   
-        
+    
+# COMPLETE - adds cards to dictionary list to be written to updated inventory file; provides errors and success counts/lists
 def add_cards(addList, inventoryBasic, apiCache):
     print("Adding cards")
     goodAdds = 0
     badAdds = 0
     errorList = []
-    
-    for newCard in addList:
-        brandNewCard = False
 
+    for newCard in addList:
+        brandNewCard = False    # assumes that the card is not new, already in inventory
+        print("NEWNEW: ", newCard)
+        input()
         for oldCard in inventoryBasic:
-            if newCard.lower() == oldCard['setcode'].lower():
+            if newCard.strip().lower() ==  oldCard['setcode'].lower():
                 goodAdds += 1
                 oldCard['owned'] += 1
                 brandNewCard = False
@@ -72,26 +75,89 @@ def add_cards(addList, inventoryBasic, apiCache):
             else:
                 brandNewCard = True
         cardFound = False
-        if brandNewCard == True:
-            newCardInfo = []
+        if brandNewCard == True:    # indicates the card needs to be pulled from the api cache
+            newCardInfo = {'setcode' : None, 'name' : None, 'owned' : 0}
             for data in apiCache:
-                for code in data['card_sets']:
-                    if newCard.lower() == code.lower():
-                        newCardInfo.append(newCard)
-                        newCardInfo.append(data['name'])
-                        newCardInfo.append(1)
-                        cardFound = True
-                        break
-        if cardFound == False:
+                if 'card_sets' in data:
+                    for setCode in data['card_sets']:
+                        if newCard.strip().lower() == setCode['set_code'].lower():
+                            newCardInfo['setcode'] = newCard.strip()
+                            newCardInfo['name'] = data['name']
+                            newCardInfo['owned'] += 1
+
+                            goodAdds += 1
+                            inventoryBasic.append(newCardInfo)
+                            cardFound = True
+                            print("ADDED ", newCard)
+                            break
+                else:
+                    continue
+        if brandNewCard == True and cardFound == False:  # Means the setcode to add was not found in api data
             badAdds += 1
             errorList.append(newCard)
+                    
+    return goodAdds, badAdds, errorList, inventoryBasic
+
+# COMPLETE - writes in correct json format to json file
+def write_to_json(data):
+    with open(FILE_inventoryBasic, 'w', encoding='utf-8') as f:
+        json.dump(data, f, ensure_ascii=False, indent=4)
+
+# COMPLETE - removes from inventory and returns error/good count and error list
+def remove_from_inventory(removeList, inventory):
+    goodRemoves = 0
+    errorRemoves = 0
+    errorRemoveList = []
+    updatedInventory = []
+
+    print("\n-----")
+    for removeCard in removeList:
+        print("Card: ", removeCard)
+        cardRemoved = False
+        for inventoryCard in inventory:
+            if removeCard.strip().lower() == inventoryCard['setcode'].lower():
+                if inventoryCard['owned'] > 1:
+                    inventoryCard['owned'] -= 1
+                    goodRemoves += 1
+                    cardRemoved = True
+                    break
+                elif inventoryCard['owned'] == 0 or inventoryCard['owned'] == 1:
+                    inventory.remove(inventoryCard)
+                    goodRemoves += 1
+                    cardRemoved = True
+                    break
+                else:
+                    cardRemoved = False
+        if cardRemoved == False:
+            errorRemoveList.append(removeCard)
+            errorRemoves += 1
+        
+    print("-----\n")
+    return inventory, goodRemoves, errorRemoves, errorRemoveList
+
+
+
 
 data = import_cached_API(FILE_API_cache)
-x = 0
-for card in data:
-    if x < 11:
-        print(card['name'])
-    x += 1
-# data = import_json_file(FILE_inventoryBasic)
-# for card in data:
-#     print("name: ", card['name'])
+removeList = import_update_file(FILE_removeList)
+inventory = import_json_file(FILE_inventoryBasic)
+# addList = import_update_file(FILE_addList)
+
+# goodAdds, badAdds, errorList, inventoryBasic = add_cards(addList, inventory, data)
+
+print(inventory)
+inventory, goodRemoves, errorRemoves, errorRemoveList = remove_from_inventory(removeList, inventory)
+print(inventory)
+print("Good Removes: ", goodRemoves)
+print("Errors: ", errorRemoves)
+print("Error List: ", errorRemoveList)
+write_to_json(inventory)
+
+# DEBUGGING for add->add inventory->write file
+# addList = import_update_file(FILE_addList)
+# inventory = import_json_file(FILE_inventoryBasic)
+# write_basic_inventory(inventoryBasic)
+# print("Good Add Count: ", goodAdds)
+# print("Badd Add Count: ", badAdds)
+# print("Error Lilst: ", errorList)
+# print("Updated Inventory: ", inventoryBasic)
