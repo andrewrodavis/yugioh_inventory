@@ -6,7 +6,7 @@ URL_API_name = "https://db.ygoprodeck.com/api/v7/cardinfo.php?name="
 URL_API_info = "https://db.ygoprodeck.com/api/v7/cardinfo.php"
 
 FILE_API_cache = "./API_cache.json"
-FILE_inventoryBasic = "./inventory_basic.json"
+FILE_inventoryBasic = "./inventory.json"
 FILE_addList = "./add_file.txt"
 FILE_removeList = "./remove_file.txt"
 
@@ -57,15 +57,14 @@ def import_json_file(file_name):
     
 # COMPLETE - adds cards to dictionary list to be written to updated inventory file; provides errors and success counts/lists
 def add_cards(addList, inventoryBasic, apiCache):
-    print("Adding cards")
     goodAdds = 0
     badAdds = 0
     errorList = []
 
     for newCard in addList:
         brandNewCard = False    # assumes that the card is not new, already in inventory
-        print("NEWNEW: ", newCard)
-        input()
+        # print("NEWNEW: ", newCard)
+        # input()
         for oldCard in inventoryBasic:
             if newCard.strip().lower() ==  oldCard['setcode'].lower():
                 goodAdds += 1
@@ -88,7 +87,7 @@ def add_cards(addList, inventoryBasic, apiCache):
                             goodAdds += 1
                             inventoryBasic.append(newCardInfo)
                             cardFound = True
-                            print("ADDED ", newCard)
+                            # print("ADDED ", newCard)
                             break
                 else:
                     continue
@@ -136,7 +135,7 @@ def remove_from_inventory(removeList, inventory):
     return inventory, goodRemoves, errorRemoves, errorRemoveList
 
 
-
+# print(import_all_API(URL_API_info))
 
 # data = import_cached_API(FILE_API_cache)
 # removeList = import_update_file(FILE_removeList)
