@@ -108,7 +108,7 @@ def show_inventory(title, showThis):
     window_showInventory = Toplevel(window_main)
     # window_showInventory.config(bg = 'dimgray')
     window_showInventory.title(title)
-    window_showInventory.geometry("800x800")
+    window_showInventory.geometry("900x800")
 
 
     canvas = Canvas(master = window_showInventory, borderwidth = 0)

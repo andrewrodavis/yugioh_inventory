@@ -65,7 +65,7 @@
     {
         "setcode": "MP22-EN230",
         "name": "Stained Glass of Light & Dark",
-        "owned": 2,
+        "owned": 3,
         "price": 1.12,
         "rarity": "Rare"
     },
@@ -79,7 +79,7 @@
     {
         "setcode": "MP22-EN098",
         "name": "Birth of the Prominence Flame",
-        "owned": 1,
+        "owned": 2,
         "price": 1.12,
         "rarity": "Rare"
     },
@@ -93,14 +93,14 @@
     {
         "setcode": "MP22-EN011",
         "name": "Metalfoes Vanisher",
-        "owned": 1,
+        "owned": 2,
         "price": 1.08,
         "rarity": "Common"
     },
     {
         "setcode": "MP22-EN022",
         "name": "Parametalfoes Azortless",
-        "owned": 2,
+        "owned": 3,
         "price": 1.12,
         "rarity": "Common"
     },
@@ -149,28 +149,28 @@
     {
         "setcode": "MP22-EN139",
         "name": "Magikey Mechmusket - Batosbuster",
-        "owned": 1,
+        "owned": 2,
         "price": 1.11,
         "rarity": "Common"
     },
     {
         "setcode": "MP22-EN138",
         "name": "Aeropixthree",
-        "owned": 1,
+        "owned": 2,
         "price": 1.08,
         "rarity": "Common"
     },
     {
         "setcode": "MP22-EN003",
         "name": "Armed Dragon Thunder LV5",
-        "owned": 1,
+        "owned": 2,
         "price": 1.13,
         "rarity": "Common"
     },
     {
         "setcode": "MP22-EN065",
         "name": "Blackeyes, the Plunder Patroll Seaguide",
-        "owned": 1,
+        "owned": 3,
         "price": 1.11,
         "rarity": "Common"
     },
@@ -219,7 +219,7 @@
     {
         "setcode": "MP22-EN190",
         "name": "Icejade Tinola",
-        "owned": 1,
+        "owned": 2,
         "price": 1.1,
         "rarity": "Common"
     },
@@ -247,28 +247,28 @@
     {
         "setcode": "MP22-EN111",
         "name": "Staysailor Romarin",
-        "owned": 1,
+        "owned": 2,
         "price": 1.13,
         "rarity": "Common"
     },
     {
         "setcode": "MP22-EN010",
         "name": "The Fabled Abanc",
-        "owned": 1,
+        "owned": 2,
         "price": 1.11,
         "rarity": "Common"
     },
     {
         "setcode": "MP22-EN206",
         "name": "Undaunted Bumpkin Beast",
-        "owned": 1,
+        "owned": 2,
         "price": 1.1,
         "rarity": "Common"
     },
     {
         "setcode": "MP22-EN007",
         "name": "Windwitch - Blizzard Bell",
-        "owned": 1,
+        "owned": 3,
         "price": 1.1,
         "rarity": "Common"
     },
@@ -282,14 +282,14 @@
     {
         "setcode": "MP22-EN030",
         "name": "Armed Dragon Blitz",
-        "owned": 1,
+        "owned": 2,
         "price": 1.14,
         "rarity": "Common"
     },
     {
         "setcode": "MP22-EN161",
         "name": "Live☆Twin Sunny's Snitch",
-        "owned": 1,
+        "owned": 2,
         "price": 1.14,
         "rarity": "Common"
     },
@@ -303,7 +303,7 @@
     {
         "setcode": "MP22-EN153",
         "name": "Majestic Absorption",
-        "owned": 1,
+        "owned": 2,
         "price": 1.11,
         "rarity": "Common"
     },
@@ -317,7 +317,7 @@
     {
         "setcode": "MP22-EN223",
         "name": "Sunvine Sowing",
-        "owned": 1,
+        "owned": 2,
         "price": 1.12,
         "rarity": "Common"
     },
@@ -352,15 +352,295 @@
     {
         "setcode": "MP22-EN167",
         "name": "Magikey Duo",
-        "owned": 1,
+        "owned": 3,
         "price": 1.11,
         "rarity": "Common"
     },
     {
         "setcode": "MP22-EN109",
         "name": "Terrors of the Underroot",
+        "owned": 2,
+        "price": 1.12,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN072",
+        "name": "Dark Eye Nightmare",
+        "owned": 1,
+        "price": 1.17,
+        "rarity": "Ultra Rare"
+    },
+    {
+        "setcode": "MP22-EN064",
+        "name": "Live☆Twin Ki-sikil Frost",
+        "owned": 1,
+        "price": 1.24,
+        "rarity": "Super Rare"
+    },
+    {
+        "setcode": "MP22-EN018",
+        "name": "Radiant Vouirescence",
+        "owned": 2,
+        "price": 1.19,
+        "rarity": "Super Rare"
+    },
+    {
+        "setcode": "MP22-EN060",
+        "name": "Roxrose Dragon",
+        "owned": 1,
+        "price": 1.46,
+        "rarity": "Prismatic Secret Rare"
+    },
+    {
+        "setcode": "MP22-EN120",
+        "name": "Stardust Trail",
+        "owned": 1,
+        "price": 1.21,
+        "rarity": "Ultra Rare"
+    },
+    {
+        "setcode": "MP22-EN226",
+        "name": "Magical Cylinders",
+        "owned": 1,
+        "price": 1.15,
+        "rarity": "Super Rare"
+    },
+    {
+        "setcode": "MP22-EN270",
+        "name": "Rainbow Bridge of Salvation",
+        "owned": 1,
+        "price": 2.06,
+        "rarity": "Prismatic Secret Rare"
+    },
+    {
+        "setcode": "MP22-EN099",
+        "name": "Book of Lunar Eclipse",
+        "owned": 1,
+        "price": 1.24,
+        "rarity": "Super Rare"
+    },
+    {
+        "setcode": "MP22-EN250",
+        "name": "Contract with the Abyss",
+        "owned": 1,
+        "price": 1.21,
+        "rarity": "Ultra Rare"
+    },
+    {
+        "setcode": "MP22-EN234",
+        "name": "Abyss Keeper",
+        "owned": 1,
+        "price": 1.19,
+        "rarity": "Ultra Rare"
+    },
+    {
+        "setcode": "MP22-EN087",
+        "name": "Traptrix Cularia",
+        "owned": 1,
+        "price": 1.17,
+        "rarity": "Super Rare"
+    },
+    {
+        "setcode": "MP22-EN145",
+        "name": "Allvain the Essence of Vanity",
+        "owned": 1,
+        "price": 1.2,
+        "rarity": "Ultra Rare"
+    },
+    {
+        "setcode": "MP22-EN075",
+        "name": "White Knight of Dogmatika",
+        "owned": 1,
+        "price": 1.16,
+        "rarity": "Super Rare"
+    },
+    {
+        "setcode": "MP22-EN135",
+        "name": "Glacier Aqua Madoor",
+        "owned": 1,
+        "price": 1.14,
+        "rarity": "Rare"
+    },
+    {
+        "setcode": "MP22-EN166",
+        "name": "Majestic Mirage",
+        "owned": 1,
+        "price": 1.13,
+        "rarity": "Rare"
+    },
+    {
+        "setcode": "MP22-EN090",
+        "name": "Rank-Up-Magic Zexal Force",
+        "owned": 1,
+        "price": 1.13,
+        "rarity": "Rare"
+    },
+    {
+        "setcode": "MP22-EN125",
+        "name": "Albion the Shrouded Dragon",
+        "owned": 1,
+        "price": 1.11,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN004",
+        "name": "Armed Dragon Thunder LV3",
         "owned": 1,
         "price": 1.12,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN012",
+        "name": "Constellar Caduceus",
+        "owned": 1,
+        "price": 1.14,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN118",
+        "name": "Converging Wills Dragon",
+        "owned": 1,
+        "price": 1.09,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN129",
+        "name": "Chronomaly Magella Globe",
+        "owned": 1,
+        "price": 1.12,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN017",
+        "name": "Fairy Archer Ingunar",
+        "owned": 2,
+        "price": 1.11,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN180",
+        "name": "Link Apple",
+        "owned": 2,
+        "price": 1.07,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN232",
+        "name": "Night Sword Serpent",
+        "owned": 1,
+        "price": 1.13,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN008",
+        "name": "Windwitch - Freeze Bell",
+        "owned": 1,
+        "price": 1.1,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN212",
+        "name": "Zoroa, the Magistus Conflagrant Calamity",
+        "owned": 1,
+        "price": 1.11,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN183",
+        "name": "Shinobi Insect Hagakuremino",
+        "owned": 1,
+        "price": 1.1,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN115",
+        "name": "Sunavalon Melias",
+        "owned": 2,
+        "price": 1.11,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN140",
+        "name": "Magikey Mechmortar - Garesglasser",
+        "owned": 2,
+        "price": 1.1,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN144",
+        "name": "Magikey Dragon - Andrabime",
+        "owned": 2,
+        "price": 1.11,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN044",
+        "name": "Angel Statue - Azurune",
+        "owned": 1,
+        "price": 1.11,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN228",
+        "name": "Floowandereeze and the Scary Sea",
+        "owned": 1,
+        "price": 1.12,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN040",
+        "name": "Icy Breeze Refrain",
+        "owned": 1,
+        "price": 1.1,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN229",
+        "name": "Magikey Locking",
+        "owned": 1,
+        "price": 1.11,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN102",
+        "name": "Zexal Alliance",
+        "owned": 1,
+        "price": 1.12,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN247",
+        "name": "Cynet Crosswipe",
+        "owned": 2,
+        "price": 1.11,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN218",
+        "name": "Icejade Cradle",
+        "owned": 1,
+        "price": 1.12,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN052",
+        "name": "Psychic Eraser Laser",
+        "owned": 1,
+        "price": 1.12,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN034",
+        "name": "Stairway to a Fabled Realm",
+        "owned": 1,
+        "price": 1.1,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN032",
+        "name": "Tri-Brigade Rendezvous",
+        "owned": 2,
+        "price": 1.1,
         "rarity": "Common"
     }
 ]
