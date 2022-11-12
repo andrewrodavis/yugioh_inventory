@@ -3,6 +3,364 @@
         "setcode": "MAMA-EN038",
         "name": "Swordsoul Grandmaster - Chixiao",
         "owned": 1,
-        "price": 2.34
+        "price": 2.34,
+        "rarity": "Ultra Rare"
+    },
+    {
+        "setcode": "MP22-EN160",
+        "name": "Sacred Scrolls of the Gizmek Legend",
+        "owned": 2,
+        "price": 1.12,
+        "rarity": "Rare"
+    },
+    {
+        "setcode": "MP22-EN082",
+        "name": "ZW - Dragonic Halberd",
+        "owned": 2,
+        "price": 1.12,
+        "rarity": "Rare"
+    },
+    {
+        "setcode": "MP22-EN106",
+        "name": "Thron the Disciplined Angel",
+        "owned": 1,
+        "price": 1.12,
+        "rarity": "Rare"
+    },
+    {
+        "setcode": "MP22-EN213",
+        "name": "Magikey Spirit - Vepartu",
+        "owned": 1,
+        "price": 1.17,
+        "rarity": "Rare"
+    },
+    {
+        "setcode": "MP22-EN210",
+        "name": "Ultimate Flagship Ursatron",
+        "owned": 1,
+        "price": 1.1,
+        "rarity": "Rare"
+    },
+    {
+        "setcode": "MP22-EN105",
+        "name": "Proof of Pruflas",
+        "owned": 2,
+        "price": 1.14,
+        "rarity": "Rare"
+    },
+    {
+        "setcode": "MP22-EN158",
+        "name": "Magikey World",
+        "owned": 1,
+        "price": 1.18,
+        "rarity": "Rare"
+    },
+    {
+        "setcode": "MP22-EN081",
+        "name": "Ultimate Dragonic Utopia Ray",
+        "owned": 1,
+        "price": 1.18,
+        "rarity": "Rare"
+    },
+    {
+        "setcode": "MP22-EN230",
+        "name": "Stained Glass of Light & Dark",
+        "owned": 2,
+        "price": 1.12,
+        "rarity": "Rare"
+    },
+    {
+        "setcode": "MP22-EN055",
+        "name": "Virtual World Oto-Hime - Toutou",
+        "owned": 1,
+        "price": 1.13,
+        "rarity": "Rare"
+    },
+    {
+        "setcode": "MP22-EN098",
+        "name": "Birth of the Prominence Flame",
+        "owned": 1,
+        "price": 1.12,
+        "rarity": "Rare"
+    },
+    {
+        "setcode": "MP22-EN071",
+        "name": "Anchamoufrite",
+        "owned": 1,
+        "price": 1.1,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN011",
+        "name": "Metalfoes Vanisher",
+        "owned": 1,
+        "price": 1.08,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN022",
+        "name": "Parametalfoes Azortless",
+        "owned": 2,
+        "price": 1.12,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN173",
+        "name": "Pazuzule",
+        "owned": 1,
+        "price": 1.1,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN025",
+        "name": "Dragunity Knight - Gormfaobhar",
+        "owned": 1,
+        "price": 1.1,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN146",
+        "name": "Stellar Wind Wolfrayet",
+        "owned": 1,
+        "price": 1.13,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN026",
+        "name": "Sacred Tree Beast, Hyperyton",
+        "owned": 1,
+        "price": 1.12,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN046",
+        "name": "Coordius the Triphasic Dealmon",
+        "owned": 1,
+        "price": 1.11,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN143",
+        "name": "Magikey Beast - Ansyalabolas",
+        "owned": 1,
+        "price": 1.11,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN139",
+        "name": "Magikey Mechmusket - Batosbuster",
+        "owned": 1,
+        "price": 1.11,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN138",
+        "name": "Aeropixthree",
+        "owned": 1,
+        "price": 1.08,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN003",
+        "name": "Armed Dragon Thunder LV5",
+        "owned": 1,
+        "price": 1.13,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN065",
+        "name": "Blackeyes, the Plunder Patroll Seaguide",
+        "owned": 1,
+        "price": 1.11,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN244",
+        "name": "Bravedrive",
+        "owned": 1,
+        "price": 1.07,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN199",
+        "name": "Destiny HERO - Denier",
+        "owned": 1,
+        "price": 1.13,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN182",
+        "name": "Dinowrestler Iguanodraka",
+        "owned": 1,
+        "price": 1.13,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN110",
+        "name": "Eda the Sun Magician",
+        "owned": 1,
+        "price": 1.07,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN243",
+        "name": "Flip Frozen",
+        "owned": 1,
+        "price": 1.1,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN009",
+        "name": "Fabled Marcosia",
+        "owned": 1,
+        "price": 1.1,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN190",
+        "name": "Icejade Tinola",
+        "owned": 1,
+        "price": 1.1,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN189",
+        "name": "Icejade Acti",
+        "owned": 1,
+        "price": 1.13,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN200",
+        "name": "Maginificent Magikey Mafteal",
+        "owned": 1,
+        "price": 1.07,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN187",
+        "name": "Rokket Caliber",
+        "owned": 1,
+        "price": 1.09,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN111",
+        "name": "Staysailor Romarin",
+        "owned": 1,
+        "price": 1.13,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN010",
+        "name": "The Fabled Abanc",
+        "owned": 1,
+        "price": 1.11,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN206",
+        "name": "Undaunted Bumpkin Beast",
+        "owned": 1,
+        "price": 1.1,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN007",
+        "name": "Windwitch - Blizzard Bell",
+        "owned": 1,
+        "price": 1.1,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN073",
+        "name": "Yamorimori",
+        "owned": 1,
+        "price": 1.11,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN030",
+        "name": "Armed Dragon Blitz",
+        "owned": 1,
+        "price": 1.14,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN161",
+        "name": "Live☆Twin Sunny's Snitch",
+        "owned": 1,
+        "price": 1.14,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN157",
+        "name": "Magikey Maftea",
+        "owned": 1,
+        "price": 1.11,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN153",
+        "name": "Majestic Absorption",
+        "owned": 1,
+        "price": 1.11,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN100",
+        "name": "One-Kuri-Way",
+        "owned": 1,
+        "price": 1.1,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN223",
+        "name": "Sunvine Sowing",
+        "owned": 1,
+        "price": 1.12,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN184",
+        "name": "Trickstar Festival",
+        "owned": 1,
+        "price": 1.11,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN096",
+        "name": "You and A.I.",
+        "owned": 1,
+        "price": 1.1,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN108",
+        "name": "Expendable Dai",
+        "owned": 1,
+        "price": 1.13,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN041",
+        "name": "Fabled Treason",
+        "owned": 1,
+        "price": 1.1,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN167",
+        "name": "Magikey Duo",
+        "owned": 1,
+        "price": 1.11,
+        "rarity": "Common"
+    },
+    {
+        "setcode": "MP22-EN109",
+        "name": "Terrors of the Underroot",
+        "owned": 1,
+        "price": 1.12,
+        "rarity": "Common"
     }
 ]

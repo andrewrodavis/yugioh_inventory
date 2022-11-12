@@ -53,7 +53,6 @@ def import_update_file(file_name):
 
 # COMPLETE - imports and returns file information
 def import_json_file(file_name):
-    print("Imporing json information")
     with open(file_name, 'r') as f:
         return json.load(f)   
     
@@ -85,7 +84,9 @@ def add_cards(addList, inventoryBasic, apiCache):
                             newCardInfo['setcode'] = newCard.strip()
                             newCardInfo['name'] = data['name']
                             newCardInfo['owned'] += 1
-                            newCardInfo['price'] = get_pricing(newCardInfo['setcode'].upper(), URL_API_pricing)
+                            avgPrice, rarity = get_pricing_rarity(newCardInfo['setcode'].upper(), URL_API_pricing)
+                            newCardInfo['price'] = avgPrice
+                            newCardInfo['rarity'] = rarity
 
                             goodAdds += 1
                             inventoryBasic.append(newCardInfo)
@@ -137,16 +138,16 @@ def remove_from_inventory(removeList, inventory):
     print("-----\n")
     return inventory, goodRemoves, errorRemoves, errorRemoveList
 
-# Function
+# Function to do
+#   Fix error when values not pulled from API to perpetuate error to user at end-point
 # Get the pricing of the card based off of the setcode
-def get_pricing(setcode, url):
+def get_pricing_rarity(setcode, url):
     # Pull the json data
     JSONPackage = ""
     url = url + setcode.upper()
-    print("url: ", url)
 
     response_API = requests.get(url)
-    print("response: ", response_API)
+    # print("response: ", response_API)
    
     data = response_API.text
     JSONPackage = json.loads(response_API.text)
@@ -154,10 +155,12 @@ def get_pricing(setcode, url):
         return "Error retrieving"
     else:
         JSONPackage = json.loads(data)
-        print(JSONPackage['status'])
-        print(JSONPackage)
-        return JSONPackage['data']['price_data']['price_data']['data']['prices']['average']
-        
+        # print(JSONPackage['status'])
+        # print(JSONPackage)
+        averagePrice = JSONPackage['data']['price_data']['price_data']['data']['prices']['average']
+        rarity = JSONPackage['data']['price_data']['rarity']
+
+    return averagePrice, rarity
 
 # get_pricing("sdy-046", URL_API_pricing)
 # print(import_all_API(URL_API_info))

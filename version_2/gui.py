@@ -42,83 +42,96 @@ def update_inventory_file_window():
     ent_inventoryFile.insert(0, "inventory.json")    
 
 # Function to do:
-#   o Alphabetize owned list
-# COMPLETE
-def show_inventory(title, showThis):
-    window_showInventory = Toplevel(window_main)
-    # window_showInventory.config(bg = 'dimgray')
-    window_showInventory.title(title)
-    if showThis == None:
-        inventory = import_json_file(FILE_inventory)
-        inventory = sorted(inventory, key = lambda k: k['name'])
-    else:
-        inventory = showThis
-
-    keys = ['owned', 'name', 'setcode', 'price']
-
-    # Print the inventory stats
-    print("len: ", len(inventory))
-    overviewTitles = ['TOTAL OWNED', 'UNIQUE CARDS', 'TOTAL VALUE']
-    overviewStats = []
-    # Get stats
+#   o Check functionality
+def get_inventory_stats(inventory):
     totalOwned = 0
     totalValue = 0.00
+    overviewStats = []
+    
     for card in inventory:
         totalOwned += card['owned']
         totalValue += (card['price'] * card['owned'])
     overviewStats.append(totalOwned)
     overviewStats.append(len(inventory))
     overviewStats.append(format(totalValue, '.2f'))
-    # Print to window
-    x = 0
-    for a in range(len(overviewTitles)):
-        frm_grid = Frame(master = window_showInventory, relief = RAISED)
-        frm_grid.grid(row = 0, column = a)
-        lbl_grid = Label(master = frm_grid, text = overviewTitles[a])
-        lbl_grid.pack()
-    for a in range(len(overviewStats)):
-        frm_grid = Frame(master = window_showInventory, relief = RAISED)
-        frm_grid.grid(row = 1, column = a)
-        lbl_grid = Label(master = frm_grid, text = overviewStats[a])
-        lbl_grid.pack(pady = 5)
 
-    # Print the cards and their details in columns
+    return overviewStats
+
+# Scrollbar helper
+def onFrameConfigure(canvas):
+    canvas.configure(scrollregion = canvas.bbox("all"))
+    
+# Function to do
+def populate(frame, inventory, overviewTitles, overviewStats, keys):
+    print("populating")
+    # Print inventory overview and stats
+    for a in range(len(overviewTitles)):
+        lbl = Label(master = frame, text = overviewTitles[a]).grid(row = 0, column = a)
+    for a in range(len(overviewStats)):
+        lbl = Label(master = frame, text = overviewStats[a]).grid(row = 1, column = a)
+
+    # Print inventory cards
     x = 0
     y = 0
+
+    print("cards")
     for card in inventory:
-        print(card)
-        print(len(card))
         if x == 0:
             for a in range(len(keys) + 1):
-                print("a: ", a)
-                frm_grid = Frame(master = window_showInventory, relief = RAISED)
-                frm_grid.grid(row = 2, column = a)
-                if a == 3:
-                    lbl_grid1 = Label(master = frm_grid, text = "UNIT PRICE")
-                elif a == 4:
-                    lbl_grid1 = Label(master = frm_grid, text = "COLLECTION PRICE")
+                if a == 4:
+                    lbl = Label(master = frame, text = "UNIT PRICE").grid(row = 2, column = a)
+                elif a == 5:
+                    lbl = Label(master = frame, text = "COLLECTION PRICES").grid(row = 2, column = a)
                 else:
-                    lbl_grid1 = Label(master = frm_grid, text = keys[a].upper())
-                lbl_grid1.pack(padx = 2)
+                    lbl = Label(master = frame, text = keys[a].upper()).grid(row = 2, column = a)
             x += 3
         for col in range(len(card) + 1):
             if col < len(card):
                 data = card[keys[y]]
-            frm_grid = Frame(master = window_showInventory, relief = RAISED)
-            frm_grid.grid(row = x, column = y)
-            # This is the price key location
-            if col == 3:
+            if col == 4:
                 price = format(data, '.2f')
-                lbl_grid = Label(master = frm_grid, text = price)
-            elif col < 3:  
-                lbl_grid = Label(master = frm_grid, text = data)
+                lbl = Label(master = frame, text = price).grid(row = x, column = y)
+            elif col < 4:
+                lbl = Label(master = frame, text = data).grid(row = x, column = y)
             else:
                 totalPrice = format((card['price'] * card['owned']), '.2f')
-                lbl_grid = Label(master = frm_grid, text = totalPrice)
-            lbl_grid.pack(padx = 2)
+                lbl = Label(master = frame, text = totalPrice).grid(row = x, column = y)
             y += 1
         x += 1
         y = 0
+
+
+# Function to do:
+#   x Alphabetize owned list
+#   o Add scrollbar
+def show_inventory(title, showThis):
+    window_showInventory = Toplevel(window_main)
+    # window_showInventory.config(bg = 'dimgray')
+    window_showInventory.title(title)
+    window_showInventory.geometry("800x800")
+
+
+    canvas = Canvas(master = window_showInventory, borderwidth = 0)
+    frame = Frame(master = canvas)#, relief = RAISED, borderwidth = 2)
+    vsb = Scrollbar(master = window_showInventory, orient = "vertical", command = canvas.yview)
+    canvas.configure(yscrollcommand = vsb.set)
+
+    vsb.pack(side = "right", fill = "y")
+    canvas.pack(side = "left", fill = "both", expand = True)
+    canvas.create_window((4,4), window = frame, anchor = "nw")
+    frame.bind("<Configure>", lambda event, canvas = canvas : onFrameConfigure(canvas))
+
+    if showThis == None:
+        inventory = import_json_file(FILE_inventory)
+        inventory = sorted(inventory, key = lambda k: k['name'])
+    else:
+        inventory = showThis
+
+    keys = ['owned', 'name', 'rarity', 'setcode', 'price']
+    overviewTitles = ['TOTAL OWNED', 'UNIQUE CARDS', 'TOTAL VALUE']
+    overviewStats = get_inventory_stats(inventory)
+
+    populate(frame, inventory, overviewTitles, overviewStats, keys)
 
 # Function to do;
 #   center text and buttons dynamically
@@ -126,7 +139,7 @@ def show_inventory(title, showThis):
 def simple_inventory():
     window_simpleInventory = Toplevel(window_main)
     window_simpleInventory.configure(bg = 'dimgray')
-    window_simpleInventory.geometry("400x300")
+    # window_simpleInventory.geometry("400x300")
 
     window_simpleInventory.title("Simple Inventory Menu")
 
