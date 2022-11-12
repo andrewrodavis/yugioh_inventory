@@ -6,6 +6,7 @@ from update_inventory import import_all_API
 from update_inventory import write_to_json  # Is this and the next line the same code in the library?
 from update_inventory import write_to_cache
 from update_inventory import add_cards
+from update_inventory import remove_from_inventory
 from tkinter.messagebox import showinfo, showerror
 
 # GLOBALS - figure out way to avoid these
@@ -273,6 +274,45 @@ def search_window():
     ent_searchBox.pack(pady = 5)
     btn_search.pack()
 
+# Function to do
+#
+def remove_from_inventory_gui(fileName):
+    inventory = import_json_file(FILE_inventory)
+    removeList = import_update_file(fileName)
+    inventoryBasic, goodRemoves, errorRemoves, errorRemoveList = remove_from_inventory(removeList, inventory)
+
+    write_to_json(inventoryBasic)
+
+    infoMsg = str(goodRemoves) + " Card(s) Successfully Added!\n" + str(errorRemoves) + " Card(s) Not Added.\n" + "Error on setcodes: \n"
+    for code in errorRemoveList:
+        msg = "\t" + code + "\n"
+        infoMsg += msg
+    showinfo(title = "Inventory Update Message", message = infoMsg)
+# Function to do
+#
+def remove_window():
+    window_remove = Toplevel(window_main)
+    window_remove.configure(bg = 'dimgray')
+    window_remove.title("Remove Menu")
+
+    defaultEntry = StringVar(window_remove, value = "remove_file.txt")
+    
+    # QUESTION: what should the master window here be?
+    lbl_instructions1 = Label(master = window_remove, text = "Instructions:", background = "dimgray", foreground = "white")
+    lbl_instructions2 = Label(master = window_remove, text = "1. Ensure the file name in the box matches the file name with your setcodes", background = "dimgray", foreground = "white", anchor = "w")
+    lbl_instructions3 = Label(master = window_remove, text = "2. Format your text file with one setcode per line. For example:\nsdk-001\nsdk-002\n...", background = "dimgray", foreground = "white")
+    lbl_instructions4 = Label(master = window_remove, text = "3. Click the 'Remove From Your Inventory' button", background = "dimgray", foreground = "white")
+    ent_removeFile = Entry(master = window_remove, textvariable = defaultEntry, width = 25)
+    btn_updateFileName = Button(master = window_remove, text = "Remove From Your Inventory", width = 25, command = lambda : remove_from_inventory_gui(ent_removeFile.get()))
+
+    lbl_instructions1.pack()
+    lbl_instructions2.pack()
+    lbl_instructions3.pack()
+    lbl_instructions4.pack()
+    ent_removeFile.pack(pady = 5)
+    btn_updateFileName.pack(pady = 5)
+
+
 window_main = Tk(className="YuGiOh Inventory")
 window_main.configure(bg='dimgray')
 # window_main.geometry("400x300")
@@ -282,10 +322,11 @@ lbl_greeting = Label(text = "Welcome to Your Inventory Management!", background 
 btn_viewInventorySimple = Button(text = "View Simple Inventory", width = 25, command = simple_inventory)
 btn_viewInventoryDetailed = Button(text = "View Detailed Inventory", width = 25)
 btn_addToInventory = Button(text = "Add To Your Inventory", width = 25, command = add_to_inventory_window)
-btn_removeFromInventory = Button(text = "Remove From Your Inventory", width = 25)
+btn_removeFromInventory = Button(text = "Remove From Your Inventory", width = 25, command = remove_window)
 btn_searchInventory = Button(text = "Search For A Card", width = 25, command = search_window)
 btn_updateAPICache = Button(text = "Update the API Cache", width = 25, command = update_API_window)
-btn_viewInventoryPricing = Button(text = "View cost of Inventory", width = 25)
+# This can be viewed by viewing simple inventory -- probably not needed here
+btn_viewInventoryPricing = Button(text = "View Inventory Value", width = 25)
 
 lbl_greeting.pack(pady = 10)
 btn_viewInventorySimple.pack(pady = 5)

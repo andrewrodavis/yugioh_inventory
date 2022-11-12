@@ -64,19 +64,19 @@ def add_cards(addList, inventoryBasic, apiCache):
     errorList = []
 
     for newCard in addList:
-        brandNewCard = False    # assumes that the card is not new, already in inventory
+        notBrandNewCard = True    # assumes that the card is not new, already in inventory
         # print("NEWNEW: ", newCard)
         # input()
         for oldCard in inventoryBasic:
             if newCard.strip().lower() ==  oldCard['setcode'].lower():
                 goodAdds += 1
                 oldCard['owned'] += 1
-                brandNewCard = False
+                notBrandNewCard = False
                 break
             else:
-                brandNewCard = True
+                notBrandNewCard = True
         cardFound = False
-        if brandNewCard == True:    # indicates the card needs to be pulled from the api cache
+        if notBrandNewCard == True:    # indicates the card needs to be pulled from the api cache
             newCardInfo = {'setcode' : None, 'name' : None, 'owned' : 0, 'price' : 0.00}
             for data in apiCache:
                 if 'card_sets' in data:
@@ -94,7 +94,7 @@ def add_cards(addList, inventoryBasic, apiCache):
                             break
                 else:
                     continue
-        if brandNewCard == True and cardFound == False:  # Means the setcode to add was not found in api data
+        if notBrandNewCard == True and cardFound == False:  # Means the setcode to add was not found in api data
             badAdds += 1
             errorList.append(newCard)
                     
@@ -170,7 +170,6 @@ def get_pricing(setcode, url):
 # goodAdds, badAdds, errorList, inventoryBasic = add_cards(addList, inventory, data)
 
 
-# print(inventory)
 # inventoryBasic, goodRemoves, errorRemoves, errorRemoveList = remove_from_inventory(removeList, inventory)
 # print(inventory)
 # print("Good Removes: ", goodRemoves)

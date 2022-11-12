@@ -1,26 +1,8 @@
 [
     {
-        "setcode": "sdk-001",
-        "name": "Blue-Eyes White Dragon",
-        "owned": 14,
-        "price": 5.4
-    },
-    {
-        "setcode": "sdk-002",
-        "name": "Idk",
-        "owned": 24,
-        "price": 1.21
-    },
-    {
-        "setcode": "sdk-003",
-        "name": "Ryu-Kishin",
-        "owned": 23,
-        "price": 1.25
-    },
-    {
-        "setcode": "sdk-004",
-        "name": "The Wicked Worm Beast",
-        "owned": 15,
-        "price": 1.61
+        "setcode": "MAMA-EN038",
+        "name": "Swordsoul Grandmaster - Chixiao",
+        "owned": 1,
+        "price": 2.34
     }
 ]
