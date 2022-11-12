@@ -6,13 +6,14 @@ from update_inventory import import_all_API
 from update_inventory import write_to_json  # Is this and the next line the same code in the library?
 from update_inventory import write_to_cache
 from update_inventory import add_cards
-from tkinter.messagebox import showinfo
+from tkinter.messagebox import showinfo, showerror
 
 # GLOBALS - figure out way to avoid these
 FILE_inventory = "./inventory.json"
 FILE_API_cache = "./API_cache.json"
 
 API_URL_info = "https://db.ygoprodeck.com/api/v7/cardinfo.php"
+URL_API_pricing = "https://yugiohprices.com/api/price_for_print_tag/"
 
 # COMPLETE - updates the file value
 def update_inventory_file(newFile):
@@ -42,34 +43,77 @@ def update_inventory_file_window():
 # Function to do:
 #   o Alphabetize owned list
 # COMPLETE
-def show_inventory():
+def show_inventory(title, showThis):
     window_showInventory = Toplevel(window_main)
     # window_showInventory.config(bg = 'dimgray')
-    window_showInventory.title("Simple Inventory")
-    inventory = import_json_file(FILE_inventory)
+    window_showInventory.title(title)
+    if showThis == None:
+        inventory = import_json_file(FILE_inventory)
+        inventory = sorted(inventory, key = lambda k: k['name'])
+    else:
+        inventory = showThis
 
-    inventory = sorted(inventory, key = lambda k: k['name'])
+    keys = ['owned', 'name', 'setcode', 'price']
 
+    # Print the inventory stats
+    print("len: ", len(inventory))
+    overviewTitles = ['TOTAL OWNED', 'UNIQUE CARDS', 'TOTAL VALUE']
+    overviewStats = []
+    # Get stats
+    totalOwned = 0
+    totalValue = 0.00
+    for card in inventory:
+        totalOwned += card['owned']
+        totalValue += (card['price'] * card['owned'])
+    overviewStats.append(totalOwned)
+    overviewStats.append(len(inventory))
+    overviewStats.append(format(totalValue, '.2f'))
+    # Print to window
+    x = 0
+    for a in range(len(overviewTitles)):
+        frm_grid = Frame(master = window_showInventory, relief = RAISED)
+        frm_grid.grid(row = 0, column = a)
+        lbl_grid = Label(master = frm_grid, text = overviewTitles[a])
+        lbl_grid.pack()
+    for a in range(len(overviewStats)):
+        frm_grid = Frame(master = window_showInventory, relief = RAISED)
+        frm_grid.grid(row = 1, column = a)
+        lbl_grid = Label(master = frm_grid, text = overviewStats[a])
+        lbl_grid.pack(pady = 5)
+
+    # Print the cards and their details in columns
     x = 0
     y = 0
-    keys = ['owned', 'name', 'setcode']
-
     for card in inventory:
         print(card)
         print(len(card))
         if x == 0:
-            for a in range(3):
+            for a in range(len(keys) + 1):
+                print("a: ", a)
                 frm_grid = Frame(master = window_showInventory, relief = RAISED)
-                frm_grid.grid(row = 0, column = a)            
-                lbl_grid1 = Label(master = frm_grid, text = keys[a].upper())
+                frm_grid.grid(row = 2, column = a)
+                if a == 3:
+                    lbl_grid1 = Label(master = frm_grid, text = "UNIT PRICE")
+                elif a == 4:
+                    lbl_grid1 = Label(master = frm_grid, text = "COLLECTION PRICE")
+                else:
+                    lbl_grid1 = Label(master = frm_grid, text = keys[a].upper())
                 lbl_grid1.pack(padx = 2)
-            x += 1
-        for col in range(len(card)):
-            data = card[keys[y]]
-            print(data)
+            x += 3
+        for col in range(len(card) + 1):
+            if col < len(card):
+                data = card[keys[y]]
             frm_grid = Frame(master = window_showInventory, relief = RAISED)
-            frm_grid.grid(row = x, column = y)            
-            lbl_grid = Label(master = frm_grid, text = data)
+            frm_grid.grid(row = x, column = y)
+            # This is the price key location
+            if col == 3:
+                price = format(data, '.2f')
+                lbl_grid = Label(master = frm_grid, text = price)
+            elif col < 3:  
+                lbl_grid = Label(master = frm_grid, text = data)
+            else:
+                totalPrice = format((card['price'] * card['owned']), '.2f')
+                lbl_grid = Label(master = frm_grid, text = totalPrice)
             lbl_grid.pack(padx = 2)
             y += 1
         x += 1
@@ -88,7 +132,7 @@ def simple_inventory():
     lbl_currentFile = Label(master = window_simpleInventory, text = "Current Inventory File: inventory.json", background = 'dimgray', foreground = 'white')
 
     btn_updateFile = Button(master = window_simpleInventory, text = "Update Inventory File", width = 25, command = update_inventory_file_window)
-    btn_viewInventory = Button(master = window_simpleInventory, text = "View Inventory", width = 25, command = show_inventory)
+    btn_viewInventory = Button(master = window_simpleInventory, text = "View Inventory", width = 25, command = lambda : show_inventory("Simple Inventory", None))
 
     lbl_currentFile.pack(pady = 5)
     btn_updateFile.pack(pady = 5)
@@ -174,9 +218,64 @@ def update_API_window():
     ent_fileLocation.pack()
     btn_updateCache.pack()
 
+# Function to do:
+#
+def search_for_card(name):
+    print("searching 2")
+    inventory = import_json_file(FILE_inventory)
+    
+    name = name.replace('-', ' ')
+    name = name.replace('/', ' ')
+    name = name.replace('!', ' ')
+    name = name.replace('\\', ' ')
+    name = name.lower()
+    
+    matchList = []
+
+    for card in inventory:
+        normalized = card['name']
+        normalized = normalized.replace('-', ' ')
+        normalized = normalized.replace('/', ' ')
+        normalized = normalized.replace('!', ' ')
+        normalized = normalized.replace('\\', ' ')
+        normalized = normalized.lower()
+        
+        if name in normalized:
+            matchList.append(card)
+        else:
+            continue
+    if len(matchList) == 0:
+        msg = name.upper() + " was not found in your inventory"
+        showerror(title = "Not Found", message = msg)
+    else:
+        show_inventory("Search Results", matchList)
+        # window_showSearchedCards = Toplevel(window_main)
+        # window_showSearchedCards.title("Search Results")
+        # matchList = sorted(matchList, key = lambda k: k['name'])
+        
+
+
+# Function to do:
+#
+def search_window():
+    print("searching")
+    window_search = Toplevel(window_main)
+    window_search.configure(bg = 'dimgray')
+    window_search.title("Search Menu")
+
+    lbl_greetingSearch = Label(master = window_search, background = 'dimgray', foreground = 'white', text = "Welcome to Your Inventory Search!")
+    lbl_instructionsSearch = Label(master = window_search, background = 'dimgray', foreground = 'white', text = "Enter the card name to search for")
+    ent_searchBox = Entry(master = window_search, width = 25)
+    btn_search = Button(master = window_search, text = "Search Inventory", width = 25, command = lambda : search_for_card(ent_searchBox.get()))
+
+    lbl_greetingSearch.pack(pady = 10)
+    lbl_instructionsSearch.pack(pady = 5)
+    ent_searchBox.pack(pady = 5)
+    btn_search.pack()
+
 window_main = Tk(className="YuGiOh Inventory")
 window_main.configure(bg='dimgray')
-window_main.geometry("400x300")
+# window_main.geometry("400x300")
 
 lbl_greeting = Label(text = "Welcome to Your Inventory Management!", background = 'dimgray', foreground = 'white')
 
@@ -184,8 +283,9 @@ btn_viewInventorySimple = Button(text = "View Simple Inventory", width = 25, com
 btn_viewInventoryDetailed = Button(text = "View Detailed Inventory", width = 25)
 btn_addToInventory = Button(text = "Add To Your Inventory", width = 25, command = add_to_inventory_window)
 btn_removeFromInventory = Button(text = "Remove From Your Inventory", width = 25)
-btn_searchInventory = Button(text = "Search For A Card", width = 25)
+btn_searchInventory = Button(text = "Search For A Card", width = 25, command = search_window)
 btn_updateAPICache = Button(text = "Update the API Cache", width = 25, command = update_API_window)
+btn_viewInventoryPricing = Button(text = "View cost of Inventory", width = 25)
 
 lbl_greeting.pack(pady = 10)
 btn_viewInventorySimple.pack(pady = 5)
@@ -194,5 +294,6 @@ btn_addToInventory.pack(pady = 5)
 btn_removeFromInventory.pack(pady = 5)
 btn_searchInventory.pack(pady = 5)
 btn_updateAPICache.pack(pady = 5)
+btn_viewInventoryPricing.pack(pady = 5)
 
 window_main.mainloop()

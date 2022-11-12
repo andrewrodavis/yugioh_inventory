@@ -2,21 +2,25 @@
     {
         "setcode": "sdk-001",
         "name": "Blue-Eyes White Dragon",
-        "owned": 50
+        "owned": 14,
+        "price": 5.4
     },
     {
         "setcode": "sdk-002",
         "name": "Idk",
-        "owned": 20
+        "owned": 24,
+        "price": 1.21
     },
     {
         "setcode": "sdk-003",
         "name": "Ryu-Kishin",
-        "owned": 19
+        "owned": 23,
+        "price": 1.25
     },
     {
         "setcode": "sdk-004",
         "name": "The Wicked Worm Beast",
-        "owned": 15
+        "owned": 15,
+        "price": 1.61
     }
 ]

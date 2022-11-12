@@ -5,3 +5,6 @@ sdk-002
 sdk-003
 sdk-004
 sd-004
+sdk-005
+sdk-006
+sdk-007

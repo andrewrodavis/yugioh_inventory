@@ -5,6 +5,8 @@ URL_API_setcode = "https://db.ygoprodeck.com/api/v7/cardsetsinfo.php?setcode="
 URL_API_name = "https://db.ygoprodeck.com/api/v7/cardinfo.php?name="
 URL_API_info = "https://db.ygoprodeck.com/api/v7/cardinfo.php"
 
+URL_API_pricing = "https://yugiohprices.com/api/price_for_print_tag/"
+
 FILE_API_cache = "./API_cache.json"
 FILE_inventoryBasic = "./inventory.json"
 FILE_addList = "./add_file.txt"
@@ -75,7 +77,7 @@ def add_cards(addList, inventoryBasic, apiCache):
                 brandNewCard = True
         cardFound = False
         if brandNewCard == True:    # indicates the card needs to be pulled from the api cache
-            newCardInfo = {'setcode' : None, 'name' : None, 'owned' : 0}
+            newCardInfo = {'setcode' : None, 'name' : None, 'owned' : 0, 'price' : 0.00}
             for data in apiCache:
                 if 'card_sets' in data:
                     for setCode in data['card_sets']:
@@ -83,6 +85,7 @@ def add_cards(addList, inventoryBasic, apiCache):
                             newCardInfo['setcode'] = newCard.strip()
                             newCardInfo['name'] = data['name']
                             newCardInfo['owned'] += 1
+                            newCardInfo['price'] = get_pricing(newCardInfo['setcode'].upper(), URL_API_pricing)
 
                             goodAdds += 1
                             inventoryBasic.append(newCardInfo)
@@ -134,7 +137,29 @@ def remove_from_inventory(removeList, inventory):
     print("-----\n")
     return inventory, goodRemoves, errorRemoves, errorRemoveList
 
+# Function
+# Get the pricing of the card based off of the setcode
+def get_pricing(setcode, url):
+    # Pull the json data
+    JSONPackage = ""
+    url = url + setcode.upper()
+    print("url: ", url)
 
+    response_API = requests.get(url)
+    print("response: ", response_API)
+   
+    data = response_API.text
+    JSONPackage = json.loads(response_API.text)
+    if JSONPackage['status'] == "fail":
+        return "Error retrieving"
+    else:
+        JSONPackage = json.loads(data)
+        print(JSONPackage['status'])
+        print(JSONPackage)
+        return JSONPackage['data']['price_data']['price_data']['data']['prices']['average']
+        
+
+# get_pricing("sdy-046", URL_API_pricing)
 # print(import_all_API(URL_API_info))
 
 # data = import_cached_API(FILE_API_cache)
@@ -144,13 +169,14 @@ def remove_from_inventory(removeList, inventory):
 
 # goodAdds, badAdds, errorList, inventoryBasic = add_cards(addList, inventory, data)
 
+
 # print(inventory)
-# inventory, goodRemoves, errorRemoves, errorRemoveList = remove_from_inventory(removeList, inventory)
+# inventoryBasic, goodRemoves, errorRemoves, errorRemoveList = remove_from_inventory(removeList, inventory)
 # print(inventory)
 # print("Good Removes: ", goodRemoves)
 # print("Errors: ", errorRemoves)
 # print("Error List: ", errorRemoveList)
-# write_to_json(inventory)
+# write_to_json(inventoryBasic)
 
 # DEBUGGING for add->add inventory->write file
 # addList = import_update_file(FILE_addList)
