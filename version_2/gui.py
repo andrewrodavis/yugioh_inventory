@@ -32,14 +32,14 @@ def update_inventory_file_window():
     window_updateInventory.configure(bg = 'dimgray')
     window_updateInventory.title("Update File")
 
+    defaultInventory = StringVar(window_updateInventory, value = "inventory.json")
+
     # QUESTION: what should the master window here be?
-    ent_inventoryFile = Entry(master = window_updateInventory, textvariable = "inventory.json", width = 25)
+    ent_inventoryFile = Entry(master = window_updateInventory, textvariable = defaultInventory, width = 25)
     btn_updateFileName = Button(master = window_updateInventory, text = "Update File", width = 25, command = lambda : update_inventory_file(ent_inventoryFile.get()))
 
     ent_inventoryFile.pack(pady = 5)
     btn_updateFileName.pack(pady = 5)
-
-    ent_inventoryFile.insert(0, "inventory.json")    
 
 # Function to do:
 #   o Check functionality
