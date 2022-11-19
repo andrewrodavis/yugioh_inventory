@@ -1,4 +1,6 @@
 from tkinter import *
+from pathlib import Path
+
 from update_inventory import import_json_file
 from update_inventory import import_cached_API
 from update_inventory import import_update_file
@@ -10,8 +12,8 @@ from update_inventory import remove_from_inventory
 from tkinter.messagebox import showinfo, showerror
 
 # GLOBALS - figure out way to avoid these
-FILE_inventory = "./inventory.json"
-FILE_API_cache = "./API_cache.json"
+FILE_inventory = Path("inventory.json")
+FILE_API_cache = Path("API_cache.json")
 
 API_URL_info = "https://db.ygoprodeck.com/api/v7/cardinfo.php"
 URL_API_pricing = "https://yugiohprices.com/api/price_for_print_tag/"
@@ -19,7 +21,7 @@ URL_API_pricing = "https://yugiohprices.com/api/price_for_print_tag/"
 # COMPLETE - updates the file value
 def update_inventory_file(newFile):
     global FILE_inventory 
-    FILE_inventory= newFile
+    FILE_inventory = Path(newFile)
     infoMsg = "The file was updated to " + FILE_inventory + "!"
     showinfo(title = "File Change", message = infoMsg)
 
