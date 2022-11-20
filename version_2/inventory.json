@@ -275,7 +275,7 @@
     {
         "setcode": "MP22-EN073",
         "name": "Yamorimori",
-        "owned": 1,
+        "owned": 2,
         "price": 1.11,
         "rarity": "Common"
     },
@@ -642,5 +642,166 @@
         "owned": 2,
         "price": 1.1,
         "rarity": "Common"
+    },
+    {
+        "setcode": "POTE-EN003",
+        "name": "Spright Blue",
+        "owned": 1,
+        "price": 47.67,
+        "rarity": "Secret Rare"
+    },
+    {
+        "setcode": "GRCR-EN025",
+        "name": "Rite of Aramesir",
+        "owned": 1,
+        "price": 34.46,
+        "rarity": "Ultra Rare"
+    },
+    {
+        "setcode": "SDCS-EN044",
+        "name": "Cyberdark End Dragon",
+        "owned": 1,
+        "price": 1.81,
+        "rarity": "Ultra Rare"
+    },
+    {
+        "setcode": "MAMA-EN090",
+        "name": "Triple Tactics Talent",
+        "owned": 1,
+        "price": 12.26,
+        "rarity": "Ultra Rare"
+    },
+    {
+        "setcode": "MAMA-EN073",
+        "name": "Black Luster Soldier - Soldier of Chaos",
+        "owned": 1,
+        "price": 5.05,
+        "rarity": "Ultra Rare"
+    },
+    {
+        "setcode": "MAMA-EN046",
+        "name": "Yata-Garasu",
+        "owned": 1,
+        "price": 1.6,
+        "rarity": "Ultra Rare"
+    },
+    {
+        "setcode": "MAMA-EN098",
+        "name": "Gozen Match",
+        "owned": 2,
+        "price": 2.55,
+        "rarity": "Ultra Rare"
+    },
+    {
+        "setcode": "MP22-EN264",
+        "name": "Red-Eyes Dark Dragoon",
+        "owned": 1,
+        "price": 11.35,
+        "rarity": "Prismatic Secret Rare"
+    },
+    {
+        "setcode": "MP22-EN257",
+        "name": "Ash Blossom & Joyous Spring",
+        "owned": 1,
+        "price": 12.11,
+        "rarity": "Prismatic Secret Rare"
+    },
+    {
+        "setcode": "MP22-EN123",
+        "name": "Aluber the Jester of Despia",
+        "owned": 1,
+        "price": 5.86,
+        "rarity": "Prismatic Secret Rare"
+    },
+    {
+        "setcode": "MP22-EN253",
+        "name": "Lightning Storm",
+        "owned": 2,
+        "price": 15.55,
+        "rarity": "Prismatic Secret Rare"
+    },
+    {
+        "setcode": "MP22-EN258",
+        "name": "Ghost Belle & Haunted Mansion",
+        "owned": 1,
+        "price": 4.33,
+        "rarity": "Prismatic Secret Rare"
+    },
+    {
+        "setcode": "MP22-EN028",
+        "name": "Underworld Goddess of the Closed World",
+        "owned": 2,
+        "price": 3.81,
+        "rarity": "Prismatic Secret Rare"
+    },
+    {
+        "setcode": "MP22-EN261",
+        "name": "Nibiru, the Primal Being",
+        "owned": 2,
+        "price": 4.13,
+        "rarity": "Ultra Rare"
+    },
+    {
+        "setcode": "MP22-EN209",
+        "name": "Destiny HERO - Destroyer Phoenix Enforcer",
+        "owned": 2,
+        "price": 5.41,
+        "rarity": "Prismatic Secret Rare"
+    },
+    {
+        "setcode": "MP22-EN208",
+        "name": "Masquerade the Blazing Dragon",
+        "owned": 4,
+        "price": 1.52,
+        "rarity": "Super Rare"
+    },
+    {
+        "setcode": "BODE-EN039",
+        "name": "Destiny HERO - Destroyer Phoenix Enforcer",
+        "owned": 1,
+        "price": 13.41,
+        "rarity": "Secret Rare"
+    },
+    {
+        "setcode": "MP22-EN155",
+        "name": "Branded Opening",
+        "owned": 1,
+        "price": 4.97,
+        "rarity": "Prismatic Secret Rare"
+    },
+    {
+        "setcode": "MP22-EN016",
+        "name": "Heavenly Zephyr - Miradora",
+        "owned": 1,
+        "price": 1.19,
+        "rarity": "Ultra Rare"
+    },
+    {
+        "setcode": "MP22-EN256",
+        "name": "Ghost Reaper & Winter Cherries",
+        "owned": 1,
+        "price": 1.26,
+        "rarity": "Super Rare"
+    },
+    {
+        "setcode": "MP21-EN253",
+        "name": "Hamon, Lord of Striking Thunder",
+        "owned": 2,
+        "price": 1.95,
+        "rarity": "Prismatic Secret Rare"
+    },
+    {
+        "setcode": "SDCS-EN002",
+        "name": "Cyberdark Chimera",
+        "owned": 1,
+        "price": 1.22,
+        "rarity": "Ultra Rare"
+    },
+    {
+        "setcode": "DIFO-EN046",
+        "name": "Exosisters Magnifica",
+        "owned": 1,
+        "price": 198.41,
+        "rarity": "Starlight Rare"
     }
 ]
